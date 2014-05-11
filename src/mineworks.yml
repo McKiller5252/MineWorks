@@ -1,0 +1,22 @@
+#===================================================MineWorks Config===================================================#
+#Weather you want cooldowns on the firework launch or not.
+#Tip: On the cooldowntime leave the 3 zeros on the end and just change the 15 to what ever sec you want the cooldown to be.
+FireworkCooldown: true
+CooldownTime: 15000
+
+#Give the LaunchMessage some custom text.
+#If you want the text to have color use this: http://minecraft.gamepedia.com/Formatting_codes
+#Note: Please keep the '' or it won't work
+LaunchMessage: '&aLaunching Firework!'
+#If true it will give a launch message, If false it won't give one.
+LaunchChatMessage: true
+
+#if it's true it will give a firework rocket when a player joins and if it's false it won't give to the player.
+GiveFirework: true
+
+#Give the firework a name
+#Note: Please keep the '' or it won't work
+FireworkName: '&6&lFirework'
+
+#Slot #0-8
+FireworkSlot: 4

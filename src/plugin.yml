@@ -1,0 +1,10 @@
+name: MineWorks
+main: me.killer5252.mineworks.MineWorks
+version: 1.01
+author: Killer5252
+description: Launches a random firework.
+
+commands:
+    fw:
+     description: Lanches a random firework
+     permission: RandomizedFireworks.firework
