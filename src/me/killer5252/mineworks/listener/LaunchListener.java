@@ -1,7 +1,5 @@
 package me.killer5252.mineworks.listener;
 
-
-
 import me.killer5252.mineworks.MineWorks;
 import me.killer5252.mineworks.config.ConfigManager;
 

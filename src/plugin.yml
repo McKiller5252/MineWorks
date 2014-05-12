@@ -7,4 +7,4 @@ description: Launches a random firework.
 commands:
     fw:
      description: Lanches a random firework
-     permission: RandomizedFireworks.firework
+     permission: MineWorks.firework

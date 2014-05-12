@@ -39,7 +39,7 @@ public class MineWorks extends JavaPlugin implements Listener {
 	
 	
 	private void consoleOut(String msg) {
-		System.out.println("[RandomizedFireworks]" + msg);
+		System.out.println("[MineWorks]" + msg);
 		
 	}
 
