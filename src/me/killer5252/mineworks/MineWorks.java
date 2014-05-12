@@ -3,7 +3,6 @@ package me.killer5252.mineworks;
 import me.killer5252.mineworks.command.FireworkCommand;
 import me.killer5252.mineworks.config.ConfigManager;
 import me.killer5252.mineworks.listener.LaunchListener;
-import me.killer5252.mineworks.util.RandomFireworks;
 
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -17,9 +16,6 @@ public class MineWorks extends JavaPlugin implements Listener {
 		plugin = this;
 		try{
 			ConfigManager.load(this, "mineworks.yml");
-			
-			RandomFireworks.getManager().addColors();
-			RandomFireworks.getManager().addTypes();
 			
 			getServer().getPluginManager().registerEvents(new LaunchListener(this), this);
 			getCommand("fw").setExecutor(new FireworkCommand(this));

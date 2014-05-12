@@ -47,7 +47,9 @@ public class FireworkCommand implements CommandExecutor {
 					p.sendMessage(prefix + ChatColor.RED + "You must wait " + ChatColor.BLACK + "[" +  ChatColor.GOLD + (Cooldowns.getCooldown(p, "Firework") / 1000) + ChatColor.BLACK + "]" + ChatColor.RED + " seconds before you can launch again.");  
 				}
 			}else if(config.getBoolean("FireworkCooldown") == false){
+				
 				RandomFireworks.getManager().launchRandomFirework(loc);
+				
 				if(config.getBoolean("LaunchChatMessage") == true){
 					p.sendMessage(prefix + launchmsg);
 				}

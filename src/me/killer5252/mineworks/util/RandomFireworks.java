@@ -1,6 +1,5 @@
 package me.killer5252.mineworks.util;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 import org.bukkit.Color;
@@ -15,60 +14,30 @@ public class RandomFireworks {
 	
 	private static RandomFireworks fireWorks = new RandomFireworks();
 	
-	Random ran = new Random();
+	Random rnd = new Random();
 	
 	public static RandomFireworks getManager(){
 		return fireWorks;
 	}
-	
-	ArrayList<Color> colors = new ArrayList<Color>();
-	ArrayList<FireworkEffect.Type> types = new ArrayList<FireworkEffect.Type>();
-	
-	public void addColors(){
-		colors.add(Color.WHITE);
-		colors.add(Color.PURPLE);
-		colors.add(Color.RED);
-		colors.add(Color.GREEN);
-		colors.add(Color.AQUA);
-		colors.add(Color.BLUE);
-		colors.add(Color.FUCHSIA);
-		colors.add(Color.GRAY);
-		colors.add(Color.LIME);
-		colors.add(Color.MAROON);
-		colors.add(Color.YELLOW);
-		colors.add(Color.SILVER);
-		colors.add(Color.TEAL);
-		colors.add(Color.ORANGE);
-		colors.add(Color.OLIVE);
-		colors.add(Color.NAVY);
-		colors.add(Color.BLACK);
-	}
-	public void addTypes(){
-		types.add(FireworkEffect.Type.BURST);
-		types.add(FireworkEffect.Type.BALL);
-		types.add(FireworkEffect.Type.BALL_LARGE);
-		types.add(FireworkEffect.Type.CREEPER);
-		types.add(FireworkEffect.Type.STAR);
-	}
-	
-	public FireworkEffect.Type getRandomType(){
-		int size = types.size();
-		FireworkEffect.Type theType = types.get(ran.nextInt(size));
-		return theType;
-	}
-	
-	public Color getRandomColor(){
-		int size = colors.size();
-		Color color = colors.get(ran.nextInt(size));
-		return color;
-	}
+	private Color[] colors = { Color.AQUA, Color.BLACK, Color.BLUE, Color.FUCHSIA, 
+			Color.GREEN, Color.LIME, Color.MAROON, Color.OLIVE, Color.ORANGE, 
+			Color.PURPLE, Color.RED, Color.TEAL, Color.WHITE, Color.YELLOW };
 	
 	public void launchRandomFirework(Location loc){
 		Firework fw = loc.getWorld().spawn(loc, Firework.class);
-		FireworkMeta fm = fw.getFireworkMeta();
-		int rp = ran.nextInt(2) + 1;
+        FireworkMeta fm = fw.getFireworkMeta();
+        FireworkEffect.Builder effect = FireworkEffect.builder();
+        effect.flicker(this.rnd.nextInt(10) > 2);
+        effect.trail(this.rnd.nextInt(10) > 2);
+        FireworkEffect.Type[] types = FireworkEffect.Type.values();
+        effect.with(types[this.rnd.nextInt(types.length)]);
+        int colorcnt = this.rnd.nextInt(3) + 2;
+        for (int i = 0; i < colorcnt; i++) {
+          effect.withColor(this.colors[this.rnd.nextInt(this.colors.length)]);
+        }
+        fm.addEffect(effect.build());
+        int rp = rnd.nextInt(2) + 1;
 		fm.setPower(rp);
-		fm.addEffects(FireworkEffect.builder().with(getRandomType()).withColor(getRandomColor()).build());
-		fw.setFireworkMeta(fm);
+        fw.setFireworkMeta(fm);
 	}
 }
