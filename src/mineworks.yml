@@ -18,5 +18,6 @@ GiveFirework: true
 #Note: Please keep the '' or it won't work
 FireworkName: '&6&lFirework'
 
+
 #Slot #0-8
 FireworkSlot: 4

@@ -1,8 +1,11 @@
 package me.killer5252.mineworks.listener;
 
+import java.util.Arrays;
+
 import me.killer5252.mineworks.MineWorks;
 import me.killer5252.mineworks.config.ConfigManager;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
@@ -41,6 +44,7 @@ public class LaunchListener implements Listener {
 			ItemStack spawnItem = new ItemStack(Material.FIREWORK);
 			 ItemMeta im =  spawnItem.getItemMeta();
 			 im.setDisplayName(fwname);
+			 im.setLore(Arrays.asList(ChatColor.AQUA + "Right click to launch firework."));
 			 spawnItem.setItemMeta(im);
 			 p.getInventory().setItem(config.getInt("FireworkSlot"), spawnItem);
 		}
