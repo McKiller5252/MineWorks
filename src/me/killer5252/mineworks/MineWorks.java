@@ -3,7 +3,6 @@ package me.killer5252.mineworks;
 import me.killer5252.mineworks.command.FireworkCommand;
 import me.killer5252.mineworks.config.ConfigManager;
 import me.killer5252.mineworks.listener.LaunchListener;
-import me.killer5252.mineworks.util.Updater;
 
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -11,16 +10,12 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class MineWorks extends JavaPlugin implements Listener {
 	
 	MineWorks plugin;
-	private Updater updatechecker;
 	
 	@Override
 	public void onEnable(){
 		plugin = this;
 		try{
 			ConfigManager.load(this, "mineworks.yml");
-			
-			updatechecker = new Updater(this);
-			updatechecker.startUpdateCheck();
 			
 			getServer().getPluginManager().registerEvents(new LaunchListener(this), this);
 			getCommand("fw").setExecutor(new FireworkCommand(this));
