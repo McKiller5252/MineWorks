@@ -3,7 +3,7 @@ package me.killer5252.mineworks.command;
 import me.killer5252.mineworks.MineWorks;
 import me.killer5252.mineworks.config.ConfigManager;
 import me.killer5252.mineworks.util.Cooldowns;
-import me.killer5252.mineworks.util.RandomFireworks;
+import me.killer5252.mineworks.util.RandomFireworks101;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -39,7 +39,7 @@ public class FireworkCommand implements CommandExecutor {
 			
 			if(config.getBoolean("FireworkCooldown") == true){
 				if(Cooldowns.tryCooldown(p, "Firework", config.getInt("CooldownTime"))){
-					RandomFireworks.getManager().launchRandomFirework(loc);
+					RandomFireworks101.getManager().launchRandomFirework(loc);
 					if(config.getBoolean("LaunchChatMessage") == true){
 						p.sendMessage(prefix + launchmsg);
 					}
@@ -48,7 +48,7 @@ public class FireworkCommand implements CommandExecutor {
 				}
 			}else if(config.getBoolean("FireworkCooldown") == false){
 				
-				RandomFireworks.getManager().launchRandomFirework(loc);
+				RandomFireworks101.getManager().launchRandomFirework(loc);
 				
 				if(config.getBoolean("LaunchChatMessage") == true){
 					p.sendMessage(prefix + launchmsg);

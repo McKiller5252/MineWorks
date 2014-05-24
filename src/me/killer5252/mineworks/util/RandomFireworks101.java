@@ -8,11 +8,11 @@ import org.bukkit.Location;
 import org.bukkit.entity.Firework;
 import org.bukkit.inventory.meta.FireworkMeta;
 
-public class RandomFireworks {
+public class RandomFireworks101 {
 	
-	private static RandomFireworks fireWorks = new RandomFireworks();
+	private static RandomFireworks101 fireWorks = new RandomFireworks101();
 	
-	public static RandomFireworks getManager(){
+	public static RandomFireworks101 getManager(){
 		return fireWorks;
 	}
 
